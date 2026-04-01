@@ -23,6 +23,23 @@ services:
     logging: *default-logging
 
   # Your extra services here
+
+  dcat-validator:
+    # TODO: use built image
+    image: semtech/mu-python-template:2.0.0-beta.2
+    ports:
+      - "8888:80"
+
+  job-controller:
+    image: lblod/job-controller-service:1.2.0
+    volumes:
+      - ./config/job-controller/:/config/
+    environment:
+      LOG_SPARQL_QUERIES: "true"
+      LOG_SPARQL_UPDATES: "true"
+    restart: always
+    logging: *default-logging
+
   resource:
     image: semtech/mu-cl-resources:1.27.2
     volumes:
