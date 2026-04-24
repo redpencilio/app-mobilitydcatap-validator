@@ -1,0 +1,45 @@
+(define-resource validation-summary ()
+  :class (s-prefix "shv:ValidationSummary")
+  :properties `((:total-violations :integer ,(s-prefix "shv:totalViolations")))
+
+  :has-many `((target-class-summary :via ,(s-prefix "shv:hasTargetClassSummary")
+                                    :as "target-class-summaries"))
+
+  :has-one `((job :via ,(s-prefix "ext:report")
+                  :inverse t
+                  :as "job"))
+
+  :resource-base (s-url "http://redpencil.data.gift/id/validation-summary/")
+  :features '(include-uri)
+  :on-path "validation-summaries")
+
+(define-resource target-class-summary ()
+  :class (s-prefix "shv:TargetClassSummary")
+  :properties `((:target-class :url ,(s-prefix "shv:hasTargetClass")))
+
+  :has-many `((rule-summary :via ,(s-prefix "shv:hasRuleSummary")
+                            :as "rule-summaries"))
+
+  :has-one `((validation-summary :via ,(s-prefix "shv:hasTargetClassSummary")
+                                 :inverse t
+                                 :as "validation-summary"))
+
+  :resource-base (s-url "http://redpencil.data.gift/id/target-class-summary/")
+  :features '(include-uri)
+  :on-path "target-class-summaries")
+
+(define-resource rule-summary ()
+  :class (s-prefix "shv:RuleSummary")
+  :properties `((:violation-count :integer ,(s-prefix "shv:violationCount"))
+                (:rule :url ,(s-prefix "shv:hasRule"))
+                (:rule-constraint :url ,(s-prefix "shv:hasRuleConstraint"))
+                (:validation-result :url ,(s-prefix "shv:hasValidationResult"))
+                (:severity :url ,(s-prefix "shv:hasSeverity")))
+
+  :has-one `((target-class-summary :via ,(s-prefix "shv:hasRuleSummary")
+                                   :inverse t
+                                   :as "target-class-summary"))
+
+  :resource-base (s-url "http://redpencil.data.gift/id/rule-summary/")
+  :features '(include-uri)
+  :on-path "rule-summaries")

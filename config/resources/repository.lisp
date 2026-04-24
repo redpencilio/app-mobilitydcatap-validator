@@ -39,3 +39,5 @@
 (add-prefix "task" "http://redpencil.data.gift/vocabularies/tasks/")
 (add-prefix "nfo" "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#")
 (add-prefix "oslc" "http://open-services.net/ns/core#")
+(add-prefix "sh" "http://www.w3.org/ns/shacl#")
+(add-prefix "shv" "http://shacl.data.gift/shacl-validation#")

@@ -25,6 +25,18 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://resource/jobs/#{id}"
   end
 
+  get "/validation-summaries/:id", @json do
+    Proxy.forward conn, [], "http://resource/validation-summaries/#{id}"
+  end
+
+  get "/target-class-summaries/:id", @json do
+    Proxy.forward conn, [], "http://resource/target-class-summaries/#{id}"
+  end
+
+  get "/rule-summaries/:id", @json do
+    Proxy.forward conn, [], "http://resource/rule-summaries/#{id}"
+  end
+
   post "/validation-jobs/*path", @json do
     Proxy.forward conn, path, "http://validation-api/validation-jobs/"
   end

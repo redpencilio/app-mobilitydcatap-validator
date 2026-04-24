@@ -26,3 +26,4 @@
 (read-domain-file "domain.json")
 
 (read-domain-file "task.lisp")
+(read-domain-file "shacl-validation.lisp")

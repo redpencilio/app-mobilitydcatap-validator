@@ -42,7 +42,8 @@
   :cogs "http://vocab.deri.ie/cogs#"
   :task "http://redpencil.data.gift/vocabularies/tasks/"
   :dct "http://purl.org/dc/terms/"
-  :adms "http://www.w3.org/ns/adms#")
+  :adms "http://www.w3.org/ns/adms#"
+  :shv "http://shacl.data.gift/shacl-validation#")
 
 
 ;;;;;;;;;
@@ -55,7 +56,9 @@
 ;; indexes.
 
 (define-graph public ("http://mu.semte.ch/graphs/public")
-  (_ -> _)) ; public allows ANY TYPE -> ANY PREDICATE in the direction
+  ("shv:ValidationSummary" -> _ )
+  ("shv:TargetClassSummary" -> _ )
+  ("shv:RuleSummary" -> _ ))
             ; of the arrow
 
 (define-graph jobs ("http://mu.semte.ch/graphs/jobs")

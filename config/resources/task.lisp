@@ -8,7 +8,9 @@
                 (:comment :string ,(s-prefix "skos:comment")))
 
   :has-one `((job-error :via ,(s-prefix "task:error")
-                        :as "error"))
+                        :as "error")
+             (validation-summary :via ,(s-prefix "ext:report")
+                                 :as "report"))
 
   :has-many `((task :via ,(s-prefix "dct:isPartOf")
                     :inverse t
