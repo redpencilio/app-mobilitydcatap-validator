@@ -11,20 +11,21 @@ defmodule Dispatcher do
 
   define_layers [ :static, :services, :fall_back, :not_found ]
 
-  # In order to forward the 'themes' resource to the
-  # resource service, use the following forward rule:
-  #
-  # match "/themes/*path", @json do
-  #   Proxy.forward conn, path, "http://resource/themes/"
-  # end
-  #
-  # Run `docker-compose restart dispatcher` after updating
-  # this file.
-
+  # Validation jobs
   get "/validation-jobs/:id", @json do
     Proxy.forward conn, [], "http://resource/validation-jobs/#{id}"
   end
 
+  post "/validation-jobs/*path", @json do
+    Proxy.forward conn, path, "http://validation-api/validation-jobs/"
+  end
+
+  # Tasks
+  get "/tasks/:id", @json do
+    Proxy.forward conn, [], "http://resource/tasks/#{id}"
+  end
+
+  # Validation summaries
   get "/validation-summaries/:id", @json do
     Proxy.forward conn, [], "http://resource/validation-summaries/#{id}"
   end
@@ -37,17 +38,14 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://resource/rule-summaries/#{id}"
   end
 
-  post "/validation-jobs/*path", @json do
-    Proxy.forward conn, path, "http://validation-api/validation-jobs/"
+  # Frontend
+  match "/assets/*path", @any do
+    Proxy.forward conn, path, "http://frontend/assets/"
   end
 
-  # match "/validate/*path" do
-  #   Proxy.forward conn, path, "http://dcat-validator/validate/"
-  # end
-
-  # match "/harvest/*path" do
-  #   Proxy.forward conn, path, "http://catalog-harvester/harvest/"
-  # end
+  get "/*path", @html do
+    Proxy.forward conn, path, "http://frontend/"
+  end
 
   match "/*_", %{ layer: :not_found } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )

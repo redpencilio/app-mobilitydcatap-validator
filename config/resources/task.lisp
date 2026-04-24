@@ -9,8 +9,10 @@
 
   :has-one `((job-error :via ,(s-prefix "task:error")
                         :as "error")
-             (validation-summary :via ,(s-prefix "ext:report")
-                                 :as "report"))
+             (validation-summary :via ,(s-prefix "ext:shaclReport")
+                                 :as "shacl-report")
+             (validation-summary :via ,(s-prefix "ext:coverageReport")
+                                 :as "coverage-report"))
 
   :has-many `((task :via ,(s-prefix "dct:isPartOf")
                     :inverse t

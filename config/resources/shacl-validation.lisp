@@ -1,13 +1,17 @@
 (define-resource validation-summary ()
   :class (s-prefix "shv:ValidationSummary")
-  :properties `((:total-violations :integer ,(s-prefix "shv:totalViolations")))
+  :properties `((:total-violations :integer ,(s-prefix "shv:totalViolations"))
+                (:endpoint-url :string ,(s-prefix "ext:endpointUrl")))
 
   :has-many `((target-class-summary :via ,(s-prefix "shv:hasTargetClassSummary")
                                     :as "target-class-summaries"))
 
-  :has-one `((job :via ,(s-prefix "ext:report")
-                  :inverse t
-                  :as "job"))
+  :has-one `((validation-job :via ,(s-prefix "ext:shaclReport")
+                             :inverse t
+                             :as "shacl-job")
+             (validation-job :via ,(s-prefix "ext:coverageReport")
+                             :inverse t
+                             :as "coverage-job"))
 
   :resource-base (s-url "http://redpencil.data.gift/id/validation-summary/")
   :features '(include-uri)
@@ -15,7 +19,8 @@
 
 (define-resource target-class-summary ()
   :class (s-prefix "shv:TargetClassSummary")
-  :properties `((:target-class :url ,(s-prefix "shv:hasTargetClass")))
+  :properties `((:target-class :url ,(s-prefix "shv:hasTargetClass"))
+                (:resource-count :integer ,(s-prefix "shv:resourceCount")))
 
   :has-many `((rule-summary :via ,(s-prefix "shv:hasRuleSummary")
                             :as "rule-summaries"))

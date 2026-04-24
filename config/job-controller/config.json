@@ -15,6 +15,11 @@
         "currentOperation": "http://mu.semte.ch/vocabularies/ext/CatalogHarvestJob",
         "nextOperation": "http://mu.semte.ch/vocabularies/ext/ShaclValidationJob",
         "nextIndex": "2"
+      },
+      {
+        "currentOperation": "http://mu.semte.ch/vocabularies/ext/ShaclValidationJob",
+        "nextOperation": "http://mu.semte.ch/vocabularies/ext/CoverageAnalysisJob",
+        "nextIndex": "3"
       }
     ]
   }

@@ -2,6 +2,9 @@ services:
   identifier:
     ports:
       - "80:80"
+  frontend:
+    environment:
+      EMBER_ENV: "development"
   triplestore:
     ports:
       - "8890:8890"
