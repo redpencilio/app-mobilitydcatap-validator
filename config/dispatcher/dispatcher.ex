@@ -29,6 +29,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://validation-api/validation-jobs/"
   end
 
+  # match "/validate/*path" do
+  #   Proxy.forward conn, path, "http://dcat-validator/validate/"
+  # end
+
+  # match "/harvest/*path" do
+  #   Proxy.forward conn, path, "http://catalog-harvester/harvest/"
+  # end
+
   match "/*_", %{ layer: :not_found } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end

@@ -8,3 +8,6 @@ services:
   dcat-validator:
     environment:
       MODE: "development"
+  catalog-harvester:
+    environment:
+      MODE: "development"

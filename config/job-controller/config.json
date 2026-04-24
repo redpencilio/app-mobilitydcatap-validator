@@ -1,1 +1,11 @@
-{}
+{
+  "http://lblod.data.gift/id/jobs/concept/JobOperation/validation-job": {
+    "tasksConfiguration": [
+      {
+        "currentOperation": null,
+        "nextOperation": "http://mu.semte.ch/vocabularies/ext/ShaclValidationJob",
+        "nextIndex": "0"
+      }
+    ]
+  }
+}
