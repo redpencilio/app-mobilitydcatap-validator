@@ -38,7 +38,11 @@
   :session "http://mu.semte.ch/vocabularies/session/"
   :ext "http://mu.semte.ch/vocabularies/ext/"
   ;; Custom prefix URIs here, prefix casing is ignored
-  )
+  :nfo "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#"
+  :cogs "http://vocab.deri.ie/cogs#"
+  :task "http://redpencil.data.gift/vocabularies/tasks/"
+  :dct "http://purl.org/dc/terms/"
+  :adms "http://www.w3.org/ns/adms#")
 
 
 ;;;;;;;;;
@@ -54,6 +58,10 @@
   (_ -> _)) ; public allows ANY TYPE -> ANY PREDICATE in the direction
             ; of the arrow
 
+(define-graph jobs ("http://mu.semte.ch/graphs/jobs")
+  ("nfo:DataContainer" -> _ )
+  ("cogs:Job" -> _ )
+  ("task:Task" -> _ ))
 ;; Example:
 ;; (define-graph company ("http://mu.semte.ch/graphs/companies/")
 ;;   ("foaf:OnlineAccount"
@@ -69,9 +77,18 @@
 
 (supply-allowed-group "public")
 
-(grant (read write)
+(grant (read)
        :to-graph public
        :for-allowed-group "public")
+
+(grant (read)
+       :to-graph jobs
+       :for-allowed-group "public")
+
+(grant (read write)
+       :to-graph jobs
+       :for-allowed-group "public"
+       :scopes '("http://services.semantic.works/validation-api/create-job"))
 
 ;; example:
 

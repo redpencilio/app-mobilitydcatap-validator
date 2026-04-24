@@ -24,11 +24,25 @@ services:
 
   # Your extra services here
 
+  validation-api:
+    image: redpencil/validation-api-service:latest
+    labels:
+      - "logging=true"
+    environment:
+      DEFAULT_MU_AUTH_SCOPE: 'http://services.semantic.works/validation-api/create-job'
+    logging: *default-logging
+
   dcat-validator:
-    # TODO: use built image
-    image: semtech/mu-python-template:2.0.0-beta.2
-    ports:
-      - "8888:80"
+    image: redpencil/dcat-validator-service:latest
+    labels:
+      - "logging=true"
+    logging: *default-logging
+
+  catalog-harvester:
+    image: redpencil/catalog-harvester-service:latest
+    labels:
+      - "logging=true"
+    logging: *default-logging
 
   job-controller:
     image: lblod/job-controller-service:1.2.0

@@ -32,3 +32,10 @@
 ;; by them and that it shouldn't be used for permanent URIs.
 
 (add-prefix "ext" "http://mu.semte.ch/vocabularies/ext/")
+(add-prefix "dct" "http://purl.org/dc/terms/")
+(add-prefix "skos" "http://www.w3.org/2004/02/skos/core#")
+(add-prefix "adms" "http://www.w3.org/ns/adms#")
+(add-prefix "cogs" "http://vocab.deri.ie/cogs#")
+(add-prefix "task" "http://redpencil.data.gift/vocabularies/tasks/")
+(add-prefix "nfo" "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#")
+(add-prefix "oslc" "http://open-services.net/ns/core#")
