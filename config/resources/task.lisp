@@ -1,4 +1,4 @@
-(define-resource job ()
+(define-resource validation-job ()
   :class (s-prefix "cogs:Job")
   :properties `((:created :datetime ,(s-prefix "dct:created"))
                 (:modified :datetime ,(s-prefix "dct:modified"))
@@ -18,7 +18,7 @@
 
   :resource-base (s-url "http://redpencil.data.gift/id/job/")
   :features '(include-uri)
-  :on-path "jobs")
+  :on-path "validation-jobs")
 
 (define-resource task ()
   :class (s-prefix "task:Task")

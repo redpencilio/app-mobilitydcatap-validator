@@ -22,7 +22,7 @@ defmodule Dispatcher do
   # this file.
 
   get "/validation-jobs/:id", @json do
-    Proxy.forward conn, [], "http://resource/jobs/#{id}"
+    Proxy.forward conn, [], "http://resource/validation-jobs/#{id}"
   end
 
   get "/validation-summaries/:id", @json do
