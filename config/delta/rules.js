@@ -23,7 +23,7 @@ export default [
     },
     callback: {
       method: 'POST',
-      url: 'http://jobs-controller/delta'
+      url: 'http://job-controller/delta'
     },
     options: {
       resourceFormat: 'v0.0.1',
