@@ -43,9 +43,12 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://frontend/assets/"
   end
 
-  get "/favicon.ico", @any do
-  get "/*_path", @html do
+  get "/*path", @html do
     Proxy.forward conn, [], "http://frontend/index.html"
+  end
+
+  match "/*path", @any do
+    Proxy.forward conn, path, "http://frontend/"
   end
 
   match "/*_", %{ layer: :not_found } do
