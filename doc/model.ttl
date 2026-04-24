@@ -1,0 +1,73 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shv: <http://shacl.data.gift/shacl-validation#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Summary classes
+shv:ValidationSummary rdf:type rdfs:Class ;
+    rdfs:label "Validation Summary"@en ;
+    rdfs:comment "A summary of SHACL validation results"@en .
+
+shv:TargetClassSummary rdf:type rdfs:Class ;
+    rdfs:label "Target Class Summary"@en ;
+    rdfs:comment "Summary grouped by target class"@en .
+
+shv:RuleSummary rdf:type rdfs:Class ;
+    rdfs:label "Rule Summary"@en ;
+    rdfs:comment "Summary grouped by validation rule"@en .
+
+# Properties for summary
+shv:hasTargetClass rdf:type rdf:Property ;
+    rdfs:domain shv:TargetClassSummary ;
+    rdfs:range rdfs:Class ;
+    rdfs:label "has target class"@en ;
+    rdfs:comment "The target class being validated"@en .
+
+shv:hasRuleSummary rdf:type rdf:Property ;
+    rdfs:domain shv:TargetClassSummary ;
+    rdfs:range shv:RuleSummary ;
+    rdfs:label "has rule summary"@en ;
+    rdfs:comment "The rule summary for this target class"@en .
+
+shv:violationCount rdf:type rdf:Property ;
+    rdfs:domain shv:RuleSummary ;
+    rdfs:range xsd:integer ;
+    rdfs:label "violation count"@en ;
+    rdfs:comment "Number of violations for this rule"@en .
+
+shv:hasRule rdf:type rdf:Property ;
+    rdfs:domain shv:RuleSummary ;
+    rdfs:range sh:NodeShape ;
+    rdfs:label "has rule"@en ;
+    rdfs:comment "The SHACL rule that generated violations"@en .
+
+shv:hasRuleConstraint rdf:type rdf:Property ;
+    rdfs:domain shv:RuleSummary ;
+    rdfs:range rdf:Property ;
+    rdfs:label "has rule constraint"@en ;
+    rdfs:comment "The constraint that was violated"@en .
+
+shv:hasValidationResult rdf:type rdf:Property ;
+    rdfs:domain shv:RuleSummary ;
+    rdfs:range sh:ValidationResult ;
+    rdfs:label "has validation result"@en ;
+    rdfs:comment "Reference to validation result for drill-down"@en .
+
+shv:totalViolations rdf:type rdf:Property ;
+    rdfs:domain shv:ValidationSummary ;
+    rdfs:range xsd:integer ;
+    rdfs:label "total violations"@en ;
+    rdfs:comment "Total number of violations in the validation"@en .
+
+shv:hasTargetClassSummary rdf:type rdf:Property ;
+    rdfs:domain shv:ValidationSummary ;
+    rdfs:range shv:TargetClassSummary ;
+    rdfs:label "has target class summary"@en ;
+    rdfs:comment "Summary for each target class"@en .
+
+shv:hasSeverity rdf:type rdf:Property ;
+    rdfs:domain shv:RuleSummary ;
+    rdfs:range sh:Severity ;
+    rdfs:label "has severity"@en ;
+    rdfs:comment "Severity level of the rule violations"@en .
