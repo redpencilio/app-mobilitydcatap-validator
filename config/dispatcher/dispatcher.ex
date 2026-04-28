@@ -26,6 +26,10 @@ defmodule Dispatcher do
   end
 
   # Validation summaries
+  get "/validation-summaries", @json do
+    Proxy.forward conn, [], "http://resource/validation-summaries"
+  end
+
   get "/validation-summaries/:id", @json do
     Proxy.forward conn, [], "http://resource/validation-summaries/#{id}"
   end
