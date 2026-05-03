@@ -12,6 +12,7 @@ services:
       SESSION_COOKIE_SECURE: "on"
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   dispatcher:
@@ -20,12 +21,14 @@ services:
       - ./config/dispatcher:/config
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   frontend:
     image: redpencil/frontend-dcat-validator:latest
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   # Your extra services here
@@ -36,18 +39,21 @@ services:
       - "logging=true"
     environment:
       DEFAULT_MU_AUTH_SCOPE: 'http://services.semantic.works/validation-api/create-job'
+    restart: always
     logging: *default-logging
 
   dcat-validator:
     image: redpencil/dcat-validator-service:latest
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   catalog-harvester:
     image: redpencil/catalog-harvester-service:latest
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   job-controller:
@@ -66,6 +72,7 @@ services:
       - ./config/resources:/config
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   migrations:
@@ -78,6 +85,7 @@ services:
       - ./config/migrations:/data/migrations
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   delta-notifier:
@@ -86,6 +94,7 @@ services:
       - ./config/delta:/config/
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   database:
@@ -95,6 +104,7 @@ services:
       - ./data/authorization/:/data/
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
 
   triplestore:
@@ -106,4 +116,5 @@ services:
       - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
