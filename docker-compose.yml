@@ -1,4 +1,4 @@
-x-logging:
+x-logging: 
   &default-logging
   driver: "json-file"
   options:
@@ -25,7 +25,7 @@ services:
     logging: *default-logging
 
   frontend:
-    image: redpencil/frontend-dcat-validator:latest
+    image: redpencil/frontend-dcat-validator:1.0.0
     labels:
       - "logging=true"
     restart: always
@@ -34,7 +34,7 @@ services:
   # Your extra services here
 
   validation-api:
-    image: redpencil/validation-api-service:latest
+    image: redpencil/validation-api-service:1.0.0
     labels:
       - "logging=true"
     environment:
@@ -43,14 +43,14 @@ services:
     logging: *default-logging
 
   dcat-validator:
-    image: redpencil/dcat-validator-service:latest
+    image: redpencil/dcat-validator-service:1.0.1
     labels:
       - "logging=true"
     restart: always
     logging: *default-logging
 
   catalog-harvester:
-    image: redpencil/catalog-harvester-service:latest
+    image: redpencil/catalog-harvester-service:1.0.0
     labels:
       - "logging=true"
     restart: always
