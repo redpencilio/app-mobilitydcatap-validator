@@ -11,7 +11,10 @@
                              :as "shacl-job")
              (validation-job :via ,(s-prefix "ext:coverageReport")
                              :inverse t
-                             :as "coverage-job"))
+                             :as "coverage-job")
+             (validation-job :via ,(s-prefix "ext:vocabularyReport")
+                             :inverse t
+                             :as "vocabulary-job"))
 
   :resource-base (s-url "http://redpencil.data.gift/id/validation-summary/")
   :features '(include-uri)
@@ -39,7 +42,8 @@
                 (:rule :url ,(s-prefix "shv:hasRule"))
                 (:rule-constraint :url ,(s-prefix "shv:hasRuleConstraint"))
                 (:validation-result :url ,(s-prefix "shv:hasValidationResult"))
-                (:severity :url ,(s-prefix "shv:hasSeverity")))
+                (:severity :url ,(s-prefix "shv:hasSeverity"))
+                (:message :string ,(s-prefix "shv:message")))
 
   :has-one `((target-class-summary :via ,(s-prefix "shv:hasRuleSummary")
                                    :inverse t

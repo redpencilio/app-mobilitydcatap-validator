@@ -12,7 +12,9 @@
              (validation-summary :via ,(s-prefix "ext:shaclReport")
                                  :as "shacl-report")
              (validation-summary :via ,(s-prefix "ext:coverageReport")
-                                 :as "coverage-report"))
+                                 :as "coverage-report")
+             (validation-summary :via ,(s-prefix "ext:vocabularyReport")
+                                 :as "vocabulary-report"))
 
   :has-many `((task :via ,(s-prefix "dct:isPartOf")
                     :inverse t
