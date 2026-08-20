@@ -25,7 +25,7 @@ services:
     logging: *default-logging
 
   frontend:
-    image: redpencil/frontend-dcat-validator:1.0.0
+    image: redpencil/frontend-dcat-validator:1.1.0-vocabularies.1
     labels:
       - "logging=true"
     restart: always
@@ -43,7 +43,7 @@ services:
     logging: *default-logging
 
   dcat-validator:
-    image: redpencil/dcat-validator-service:1.0.1
+    image: redpencil/dcat-validator-service:1.1.0-vocabularies.1
     labels:
       - "logging=true"
     restart: always
