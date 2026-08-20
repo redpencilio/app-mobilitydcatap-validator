@@ -43,6 +43,7 @@
                 (:rule-constraint :url ,(s-prefix "shv:hasRuleConstraint"))
                 (:validation-result :url ,(s-prefix "shv:hasValidationResult"))
                 (:severity :url ,(s-prefix "shv:hasSeverity"))
+                (:constraint :url ,(s-prefix "shv:sourceConstraintComponent"))
                 (:message :string ,(s-prefix "shv:message")))
 
   :has-one `((target-class-summary :via ,(s-prefix "shv:hasRuleSummary")
