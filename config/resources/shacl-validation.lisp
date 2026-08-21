@@ -46,6 +46,9 @@
                 (:constraint :url ,(s-prefix "shv:sourceConstraintComponent"))
                 (:message :string ,(s-prefix "shv:message")))
 
+  :has-many `((rule-violation :via ,(s-prefix "shv:hasRuleViolation")
+                              :as "rule-violations"))
+
   :has-one `((target-class-summary :via ,(s-prefix "shv:hasRuleSummary")
                                    :inverse t
                                    :as "target-class-summary"))
@@ -53,3 +56,15 @@
   :resource-base (s-url "http://redpencil.data.gift/id/rule-summary/")
   :features '(include-uri)
   :on-path "rule-summaries")
+
+(define-resource rule-violation ()
+  :class (s-prefix "shv:RuleViolation")
+  :properties `((:value :string ,(s-prefix "shv:value")))
+
+  :has-one `((rule-summary :via ,(s-prefix "shv:hasRuleViolation")
+                           :inverse t
+                           :as "rule-summary"))
+
+  :resource-base (s-url "http://redpencil.data.gift/id/rule-violation/")
+  :features '(include-uri)
+  :on-path "rule-violations")

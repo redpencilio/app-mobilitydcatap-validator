@@ -58,7 +58,8 @@
 (define-graph public ("http://mu.semte.ch/graphs/public")
   ("shv:ValidationSummary" -> _ )
   ("shv:TargetClassSummary" -> _ )
-  ("shv:RuleSummary" -> _ ))
+  ("shv:RuleSummary" -> _ )
+  ("shv:RuleViolation" -> _))
             ; of the arrow
 
 (define-graph jobs ("http://mu.semte.ch/graphs/jobs")
