@@ -61,6 +61,9 @@
   :class (s-prefix "shv:RuleViolation")
   :properties `((:value :string ,(s-prefix "shv:value")))
 
+  :has-many `((term-suggestion :via ,(s-prefix "shv:hasSuggestion")
+                               :as "suggestions"))
+
   :has-one `((rule-summary :via ,(s-prefix "shv:hasRuleViolation")
                            :inverse t
                            :as "rule-summary"))
@@ -68,3 +71,16 @@
   :resource-base (s-url "http://redpencil.data.gift/id/rule-violation/")
   :features '(include-uri)
   :on-path "rule-violations")
+
+(define-resource term-suggestion ()
+  :class (s-prefix "shv:TermSuggestion")
+  :properties `((:value :string ,(s-prefix "shv:value"))
+                (:score :float ,(s-prefix "shv:score")))
+
+  :has-one `((rule-violation :via ,(s-prefix "shv:hasSuggestion")
+                             :inverse t
+                             :as "rule-violation"))
+
+  :resource-base (s-url "http://redpencil.data.gift/id/term-suggestion/")
+  :features '(include-uri)
+  :on-path "term-suggestions")
