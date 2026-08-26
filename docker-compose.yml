@@ -43,14 +43,14 @@ services:
     logging: *default-logging
 
   dcat-validator:
-    image: redpencil/dcat-validator-service:1.0.1
+    image: redpencil/dcat-validator-service:1.1.0
     labels:
       - "logging=true"
     restart: always
     logging: *default-logging
 
   catalog-harvester:
-    image: redpencil/catalog-harvester-service:1.0.0
+    image: redpencil/catalog-harvester-service:1.1.0
     labels:
       - "logging=true"
     restart: always
