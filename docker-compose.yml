@@ -25,7 +25,7 @@ services:
     logging: *default-logging
 
   frontend:
-    image: redpencil/frontend-dcat-validator:1.1.0-vocabularies.1
+    image: redpencil/frontend-dcat-validator:1.1.0-integration.1
     labels:
       - "logging=true"
     restart: always
@@ -34,7 +34,7 @@ services:
   # Your extra services here
 
   validation-api:
-    image: redpencil/validation-api-service:1.0.0
+    image: redpencil/validation-api-service:1.1.0-V3_0_0-support.1
     labels:
       - "logging=true"
     environment:
@@ -43,14 +43,14 @@ services:
     logging: *default-logging
 
   dcat-validator:
-    image: redpencil/dcat-validator-service:1.1.0-vocabularies.1
+    image: redpencil/dcat-validator-service:1.1.0-integration.2
     labels:
       - "logging=true"
     restart: always
     logging: *default-logging
 
   catalog-harvester:
-    image: redpencil/catalog-harvester-service:1.0.0
+    image: redpencil/catalog-harvester-service:feature-rdf-fallback-for-xml
     labels:
       - "logging=true"
     restart: always
