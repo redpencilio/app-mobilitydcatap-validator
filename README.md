@@ -33,7 +33,7 @@ This repository holds the [semantic.works](https://semantic.works) (mu.semte.ch)
 | `delta-notifier`                                      | Tells services about changes in the triplestore                                                                                     |
 | `resource`                                            | JSON:API for jobs, tasks and reports (`config/resources`)                                                                           |
 | `dispatcher`                                          | Routes requests (`config/dispatcher/dispatcher.ex`)                                                                                 |
-| `identifier`, `dispatcher` `database`, `triplestore`, `migrations` | Other, standard semantic.works infrastructure (sessions, router, authorization, Virtuoso, migrations)                                              |
+| `identifier`, `database`, `triplestore`, `migrations` | Other, standard semantic.works infrastructure (sessions, authorization, Virtuoso, migrations)                                       |
 
 The domain model is in `doc/model.ttl`.
 
@@ -53,7 +53,11 @@ To work on the frontend or a service, add a `docker-compose.override.yml` (it is
 
 ## Contact
 
-Questions or feedback: [info+mobilitydcatap@redpencil.io](mailto:info+mobilitydcatap@redpencil.io)
+Questions or feedback about the validator: [info+mobilitydcatap@redpencil.io](mailto:info+mobilitydcatap@redpencil.io)
+
+If you are a NAP owner, mobility data publisher, or ITS policy maker and want to discuss Mobility DCAT-AP compliance, data quality, or building tools on top of open mobility data, we'd love to hear from you:
+
+**[redpencil.io/contact](https://redpencil.io/contact)**
 
 ## License
 
