@@ -20,6 +20,11 @@
         "currentOperation": "http://mu.semte.ch/vocabularies/ext/ShaclValidationJob",
         "nextOperation": "http://mu.semte.ch/vocabularies/ext/CoverageAnalysisJob",
         "nextIndex": "3"
+      },
+      {
+        "currentOperation": "http://mu.semte.ch/vocabularies/ext/CoverageAnalysisJob",
+        "nextOperation": "http://mu.semte.ch/vocabularies/ext/VocabularyAnalysisJob",
+        "nextIndex": "4"
       }
     ]
   }

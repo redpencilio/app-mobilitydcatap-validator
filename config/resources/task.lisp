@@ -5,6 +5,7 @@
                 (:creator :url ,(s-prefix "dct:creator")) ;;Later consider using proper relation in domain.lisp
                 (:status :url ,(s-prefix "adms:status")) ;;Later consider using proper relation in domain.lisp
                 (:operation :url ,(s-prefix "task:operation")) ;;Later consider using proper relation in domain.lisp
+                (:dcat-ap-version :string ,(s-prefix "ext:dcatApVersion"))
                 (:comment :string ,(s-prefix "skos:comment")))
 
   :has-one `((job-error :via ,(s-prefix "task:error")
@@ -12,7 +13,9 @@
              (validation-summary :via ,(s-prefix "ext:shaclReport")
                                  :as "shacl-report")
              (validation-summary :via ,(s-prefix "ext:coverageReport")
-                                 :as "coverage-report"))
+                                 :as "coverage-report")
+             (validation-summary :via ,(s-prefix "ext:vocabularyReport")
+                                 :as "vocabulary-report"))
 
   :has-many `((task :via ,(s-prefix "dct:isPartOf")
                     :inverse t
