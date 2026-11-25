@@ -1,0 +1,66 @@
+# publiccode.yml — https://yml.publiccode.tools/
+publiccodeYmlVersion: "0.4"
+
+name: mobilityDCAT-AP Validator
+url: "https://github.com/redpencilio/app-mobilitydcatap-validator"
+landingURL: "https://mobility-dcat-validator.redpencil.io/"
+
+platforms:
+  - web
+
+categories:
+  - data-analytics
+  - data-collection
+
+developmentStatus: beta
+softwareType: "standalone/web"
+
+dependsOn:
+  open:
+    - name: Docker
+    - name: Virtuoso
+    - name: semantic.works (mu.semte.ch)
+
+description:
+  en:
+    shortDescription: >-
+      Online validator that checks data catalogues against the
+      mobilityDCAT-AP metadata profile.
+    longDescription: >
+      The mobilityDCAT-AP Validator harvests a data catalogue from a given
+      endpoint and checks how well its metadata complies with mobilityDCAT-AP,
+      the metadata profile National Access Points (NAPs) use under the EU ITS
+      Directive. It runs SHACL validation against the mobilityDCAT-AP shapes,
+      measures how many resources fill in each mandatory, recommended and
+      optional property, and flags values that do not use the expected
+      controlled vocabularies. The results are presented as a shareable
+      report, split by target class and rule.
+
+
+      The validator grew out of the tooling for the study "mobilityDCAT-AP in
+      Practice: Compliance Analysis of European NAPs and the Belgian Reference
+      Implementation" (ITS European Congress 2026, Istanbul), available at
+      https://github.com/redpencilio/mobilitydcatap-study.
+    documentation: "https://github.com/redpencilio/app-mobilitydcatap-validator#readme"
+    features:
+      - Harvest paginated DCAT catalogues
+      - SHACL validation against mobilityDCAT-AP
+      - Property coverage analysis
+      - Controlled vocabulary checks
+      - Shareable validation reports
+
+legal:
+  license: MIT
+  mainCopyrightOwner: redpencil.io
+  repoOwner: redpencil.io
+
+maintenance:
+  type: internal
+  contacts:
+    - name: redpencil.io
+      email: info+mobilitydcatap@redpencil.io
+
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - en
