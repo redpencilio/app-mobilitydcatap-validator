@@ -4,6 +4,8 @@ A free online validator that checks how well a data catalogue complies with [mob
 
 **Try it:** [mobility-dcat-validator.redpencil.io](https://mobility-dcat-validator.redpencil.io/)
 
+![Validation report in the mobilityDCAT-AP Validator](doc/screenshot.png)
+
 ## Background
 
 This validator grew out of the analysis tooling built for our study *mobilityDCAT-AP in Practice: Compliance Analysis of European NAPs and the Belgian Reference Implementation*, presented at the ITS European Congress 2026 in Istanbul. The study's data, scripts and findings are at [redpencilio/mobilitydcatap-study](https://github.com/redpencilio/mobilitydcatap-study).

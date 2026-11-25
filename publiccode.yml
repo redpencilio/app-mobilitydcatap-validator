@@ -42,6 +42,8 @@ description:
       Implementation" (ITS European Congress 2026, Istanbul), available at
       https://github.com/redpencilio/mobilitydcatap-study.
     documentation: "https://github.com/redpencilio/app-mobilitydcatap-validator#readme"
+    screenshots:
+      - doc/screenshot.png
     features:
       - Harvest paginated DCAT catalogues
       - SHACL validation against mobilityDCAT-AP
